@@ -1,0 +1,131 @@
+// Extra small screen / phone
+// Covers phone screens smaller than iPad
+$bp-phone-min:                320px !default;
+$bp-phone-max:                667px !default;
+
+// Small screen / tablet
+// iPad/tablet screens, larger phones in lanscape mode
+$bp-tablet-min:               668px !default;
+$bp-tablet-max:               1024px !default;
+
+// Medium screen / laptop
+// iPad tablet in landscape mode, small desktops
+$bp-laptop-min:              1025px !default;
+$bp-laptop-max:              1439px !default;
+
+// Medium screen / desktop
+// large desktops and HiDPI screens
+$bp-desktop-min:              1440px !default;
+$bp-desktop-max:              1999px !default;
+
+@mixin breakpoint($point) {
+
+  @if $point == phone {
+    @media (max-width: $bp-phone-max) {
+      @content;
+    }
+  }
+
+  @if $point == phone-portrait {
+    @media (max-width: $bp-phone-min) and (orientation: portrait) {
+      @content;
+    }
+  }
+
+  // Smaller, older screens not recognized by Boostrap -- phone (X < 480px);
+  @if $point == phone-old {
+    @media (max-width: $bp-phone-min - 1) {
+      @content;
+    }
+  }
+
+  // Mid-size to larger phone screens only -- phone (480px - 767px);
+  @if $point == phone-modern {
+    @media (min-width: $bp-phone-min) and (max-width: $bp-phone-max) {
+      @content;
+    }
+  }
+
+  @if $point == tablet {
+    @media (min-width: $bp-tablet-min) and (max-width: $bp-tablet-max) {
+      @content;
+    }
+  }
+
+  @if $point == laptop {
+    @media (min-width: $bp-laptop-min) and (max-width: $bp-laptop-max) {
+      @content;
+    }
+  }
+
+  @if $point == desktop {
+    @media (min-width: $bp-desktop-min) and (max-width: $bp-desktop-max) {
+      @content;
+    }
+  }
+
+  @if $point == display {
+    @media (min-width: $bp-display-min) {
+      @content;
+    }
+  }
+
+}
+
+@mixin breakpoint-atleast($point) {
+
+  @if $point == phone {
+    @media (max-width: $bp-phone-max) {
+      @content;
+    }
+  }
+  @if $point == tablet {
+    @media (min-width: $bp-tablet-min) {
+      @content;
+    }
+  }
+  @if $point == laptop {
+    @media (min-width: $bp-laptop-min) {
+      @content;
+    }
+  }
+  @if $point == desktop {
+    @media (min-width: $bp-desktop-min) {
+      @content;
+    }
+  }
+  @if $point == display {
+    @media (min-width: $bp-display-min) {
+      @content;
+    }
+  }
+}
+
+@mixin breakpoint-atmost($point) {
+
+  @if $point == phone {
+    @media (max-width: $bp-phone-max) {
+      @content;
+    }
+  }
+  @if $point == tablet {
+    @media (max-width: $bp-tablet-max) {
+      @content;
+    }
+  }
+  @if $point == laptop {
+    @media (max-width: $bp-laptop-max) {
+      @content;
+    }
+  }
+  @if $point == desktop {
+    @media (max-width: $bp-desktop-max) {
+      @content;
+    }
+  }
+  @if $point == display {
+    @media (max-width: $bp-display-max) {
+      @content;
+    }
+  }
+}

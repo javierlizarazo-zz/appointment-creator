@@ -1,0 +1,20 @@
+{
+  "name": "appointment-creator",
+  "private": true,
+  "dependencies": {
+    "flatpickr": "flatpickr-calendar#^2.3.7"
+  },
+  "overrides": {
+    "bootstrap-sass": {
+      "main": [
+        "assets/stylesheets/_bootstrap.scss",
+        "assets/fonts/bootstrap/*",
+        "assets/javascripts/bootstrap.js"
+      ]
+    }
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
+}

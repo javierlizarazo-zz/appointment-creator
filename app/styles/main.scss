@@ -1,0 +1,197 @@
+@import "mixins";
+
+body {
+  background-color: #fbfbfb;
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  min-width: $bp-phone-min;
+  select,
+  input,
+  button {
+    outline: 0;
+  }
+  .flatpickr-day {
+    &.disabled {
+      color: rgba(57, 57, 57, .1);
+    }
+    &.nextMonthDay {
+      color: rgba( 57, 57, 57, .7);
+      &.disabled {
+        color: rgba(57, 57, 57, .1);
+      }
+    }
+  }
+  @include breakpoint-atmost(phone) {
+    .flatpickr-calendar {
+      &.static {
+        left: calc(100% - 248px);
+        top: calc(100% - 10px);
+      }
+      &.arrowTop {
+        &:before,
+        &:after {
+          left: 50%;
+        }
+      }
+    }
+  }
+  .wrapper {
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    margin: auto;
+    max-width: 1240px;
+    padding: 40px 0 60px;
+    width: 100%;
+    @include breakpoint-atleast(tablet) {
+      width: 90%;
+    }
+    @include breakpoint-atleast(laptop) {
+      width: 100%;
+    }
+    h1 {
+      border-bottom: 1px solid #ececec;
+      margin: 0 auto 40px;
+      padding-bottom: 10px;
+      text-align: center;
+      width: 90%;
+      @include breakpoint-atleast(laptop) {
+        width: 70%;
+      }
+    }
+    h2 {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+    .appointment-picker {
+      margin: auto;
+      width: 90%;
+      @include breakpoint-atleast(laptop) {
+        width: 70%;
+      }
+      p {
+        text-align: center;
+        @include breakpoint-atleast(tablet) {
+          text-align: left;
+        }
+      }
+      .form-items {
+        width: 100%;
+        .filters {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          flex-direction: column;
+          margin: 30px 0;
+          @include breakpoint-atleast(tablet) {
+            align-items: flex-start;
+            flex-direction: row;
+          }
+          label {
+            cursor: pointer;
+            margin-bottom: 10px;
+            @include breakpoint-atleast(tablet) {
+              margin-bottom: 0;
+            }
+          }
+          label:not(:last-child) {
+            @include breakpoint-atleast(tablet) {
+              border-right: 1px solid #cccccc;
+              margin-right: 10px;
+              padding-right: 10px;
+            }
+            &.filter-by {
+              border-right: 0;
+              margin-bottom: 10px;
+              @include breakpoint-atleast(tablet) {
+                margin-bottom: 0;
+              }
+            }
+          }
+          input[type="radio"] {
+            margin-right: 5px;
+          }
+        }
+        section {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          @include breakpoint-atleast(tablet) {
+            align-items: flex-start;
+            flex-direction: row;
+          }
+        }
+        .time-container {
+          align-items: center;
+          display: flex;
+          select {
+            height: 30px;
+          }
+        }
+        .calendar-container {
+          align-items: center;
+          display: flex;
+          margin-bottom: 20px;
+          @include breakpoint-atleast(tablet) {
+            margin-right: 20px;
+            margin-bottom: 0;
+          }
+          input[type="text"] {
+            border: 1px solid #d7d7d7;
+            border-radius: 4px;
+            height: 30px;
+            padding: 5px;
+            user-select: none;
+          }
+          .date-button {
+            cursor: pointer;
+          }
+        }
+        .actions {
+          margin-top: 40px;
+          text-align: center;
+          @include breakpoint-atleast(tablet) {
+            margin-top: 20px;
+            text-align: left;
+          }
+          button {
+            border: 0;
+            &[name="save"] {
+              background-color: #00b8ff;
+              border-radius: 5px;
+              color: #fff;
+              margin-right: 20px;
+              padding: 10px 20px;
+              &:hover {
+                background-color: #0497d0;
+              }
+            }
+            &[name="cancel"] {
+              background-color: transparent;
+              color: #5d5d5d;
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+        .glyphicon {
+          color: #5f5f5f;
+          font-size: 21px;
+          line-height: inherit;
+          margin-left: 5px;
+        }
+        .created-message,
+        .error {
+          display: none;
+          margin-top: 10px;
+        }
+        .error {
+          color: red;
+        }
+      }
+    }
+  }
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+}

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>appointment creator</title>
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/flatpickr/dist/flatpickr.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+  </head>
+  <body>
+    <!--[if IE]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/flatpickr/dist/flatpickr.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <div class="wrapper">
+      <h1>Welcome to the Appointment Creator!</h1>
+      <div class="appointment-picker">
+        <p>Please start by selecting a date for your appointment:</p>
+        <div class="form-items">
+          <!-- Filter -->
+          <form id="filters" class="filters">
+            <label class="filter-by">Filter calendar by:</label>
+            <label>
+              <input type="radio" name="filter" value="Any" id="any" checked onClick="filters()">
+              Any Date
+            </label>
+            <label>
+              <input type="radio" name="filter" value="weekdays" onClick="filters()">
+              Only weekdays
+            </label>
+            <label>
+              <input type="radio" name="filter" value="weekends" onClick="filters()">
+              Only weekends
+            </label>
+          </form>
+
+          <section>
+            <!-- Date picker -->
+            <div class="date-picker">
+              <div class="calendar-container">
+                <input id="date-input" placeholder="Choose a date..." data-input>
+                <span class="glyphicon glyphicon-calendar date-button" data-toggle></span>
+              </a>
+            </div>
+            </div>
+
+            <!-- Time Picker -->
+            <div class="time-container">
+              <select id="time-picker" class="time-picker"></select>
+              <span class="glyphicon glyphicon-time"></span>
+            </div>
+          </section>
+
+          <!-- Error Message -->
+          <p class="error">Please select a date.</p>
+
+          <!-- Action buttons -->
+          <div class="actions">
+            <button name="save" type="button" onclick="saveData()">Save</button>
+            <button name="cancel" type="button" onclick="cancelData()" data-clear>Cancel</button>
+          </div>
+
+          <!-- Confirm Message -->
+          <p class="created-message">Good! Your appointment is set for <span id="date"> </span> at <span id="time"> </span>. Thanks!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- build:js scripts/plugins.js -->
+    <!-- endbuild -->
+
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>
